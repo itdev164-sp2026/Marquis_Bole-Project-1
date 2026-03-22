@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
           position: `relative`,
           zIndex: 1,
-          color: `white`, // Helps readability against the dark BG
+          color: `white`,
         }}
       >
         <main>{children}</main>

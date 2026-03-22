@@ -16,14 +16,13 @@ const Header = ({ siteTitle }) => (
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: `1000px`, // Match this to your Page/Card width (e.g., 800px or 1000px)
+        maxWidth: `1000px`,
         padding: `10px 20px`,
         display: `grid`,
         gridTemplateColumns: `1fr auto 1fr`, 
         alignItems: `center`,
       }}
     >
-      {/* 1. Left Section: Logo forced to the far left */}
       <div style={{ display: "flex", justifyContent: "flex-start" }}>
         <Link to="/" style={{ display: "flex", alignItems: "center" }}>
           <StaticImage 
@@ -31,13 +30,10 @@ const Header = ({ siteTitle }) => (
             alt="Logo"
             height={50}
             placeholder="blurred"
-            // Remove marginRight if you want it flush against the left edge
             style={{ margin: 0 }} 
           />
         </Link>
       </div>
-
-      {/* 2. Centered Title */}
       <Link
         to="/"
         style={{
@@ -52,8 +48,6 @@ const Header = ({ siteTitle }) => (
       >
         {siteTitle}
       </Link>
-
-      {/* 3. Right-aligned Navigation */}
       <nav style={{ display: "flex", gap: "25px", justifyContent: "flex-end" }}>
         <Link to="/about" style={navLinkStyle}>About Us</Link>
         <Link to="/contact" style={navLinkStyle}>Contact</Link>

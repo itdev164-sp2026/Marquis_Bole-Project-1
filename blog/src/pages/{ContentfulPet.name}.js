@@ -1,4 +1,4 @@
-import React, { useState } from "react" // Added useState
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
@@ -6,14 +6,12 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const PetTemplate = ({ data }) => {
   const pet = data.contentfulPet
-  const [currentIndex, setCurrentIndex] = useState(0) // Track which photo is showing
-
+  const [currentIndex, setCurrentIndex] = useState(0)
+  //pet detail page functions and details
   if (!pet) return null
-
   const isAvailable = pet.adoptionStatus
   const images = pet.image || []
 
-  // Functions to go back and forth
   const nextSlide = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
 
@@ -32,7 +30,7 @@ const PetTemplate = ({ data }) => {
           color: "#222"
         }}>
           
-          {/* SLIDER SECTION */}
+          {/* Slide*/}
           <div style={{ position: "relative", height: "450px", background: "#000" }}>
             {images.length > 0 && (
               <GatsbyImage 
@@ -42,14 +40,10 @@ const PetTemplate = ({ data }) => {
                 imgStyle={{ objectFit: "cover" }}
               />
             )}
-
-            {/* Only show arrows if there's more than one photo */}
             {images.length > 1 && (
               <>
                 <button onClick={prevSlide} style={arrowStyle({ left: "10px" })}>‹</button>
                 <button onClick={nextSlide} style={arrowStyle({ right: "10px" })}>›</button>
-                
-                {/* Photo Count Indicator */}
                 <div style={{
                   position: "absolute",
                   bottom: "15px",
@@ -107,7 +101,6 @@ const PetTemplate = ({ data }) => {
   )
 }
 
-// Helper for arrow styling
 const arrowStyle = (position) => ({
   position: "absolute",
   top: "50%",
